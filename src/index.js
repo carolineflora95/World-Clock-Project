@@ -34,12 +34,13 @@ function updateLocation(event) {
   let locationTimeZone = event.target.value;
   if (locationTimeZone === "current") {
     locationTimeZone = moment.tz.guess();
+    document.querySelector("#refreshLink").style.display = "none";
   }
   let locationName = locationTimeZone.replace("_", " ").split("/")[1];
   let locationTime = moment().tz(locationTimeZone);
   let interfaceElement = document.querySelector("#cities");
   interfaceElement.innerHTML = `
-   <div class="cusco" id="cusco">
+   <div>
           <h2>${locationName}</h2>
           <div class="date">${locationTime.format("MMMM Do YYYY")}</div>
           <div class="time">${locationTime.format(
@@ -48,7 +49,7 @@ function updateLocation(event) {
         </div>
   `;
 }
-setInterval(displayTime, 1);
+setInterval(displayTime, 1000);
 
 let locationSelectElement = document.querySelector("#city");
 locationSelectElement.addEventListener("change", updateLocation);
