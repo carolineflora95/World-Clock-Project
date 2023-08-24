@@ -24,5 +24,17 @@ function displayTime() {
   let cuscoTimeElement = document.querySelector("#cusco .time");
   let cuscoTime = moment().tz("America/Lima").format("HH:mm:ss A 🕖");
   cuscoTimeElement.innerHTML = cuscoTime;
+
+  let melbourneDateElement = document.querySelector("#melbourne .date");
+  let melbourneDate = moment()
+    .tz("Australia/Melbourne")
+    .format("dddd, Do MMMM YYYY 📅");
+  melbourneDateElement.innerHTML = cuscoDate;
+
+  let melbourneTimeElement = document.querySelector("#melbourne .time");
+  let melbourneTime = moment()
+    .tz("Australia/Melbourne")
+    .format("HH:mm:ss A 🕖");
+  melbourneTimeElement.innerHTML = melbourneTime;
 }
 setInterval(displayTime, 1);
