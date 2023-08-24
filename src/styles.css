@@ -1,0 +1,21 @@
+body {
+  background-color: #faf9f6;
+}
+.container {
+  border: 1px solid grey;
+  padding: 10px;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 5px;
+  text-align: center;
+  font-family: "Nanum Gothic", sans-serif;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
+}
+.sign-off {
+  text-align: center;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.form-select {
+  max-width: 250px;
+  margin: 20px auto;
+}
