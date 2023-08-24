@@ -47,6 +47,7 @@ function updateLocation(event) {
             "h:mm"
           )} <small>${locationTime.format("A")}</small></div>
         </div>
+        <a href="#">🔄</a>
   `;
 }
 setInterval(displayTime, 1000);
