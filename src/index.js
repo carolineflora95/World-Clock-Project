@@ -9,14 +9,6 @@ function displayTime() {
   let skiptonTime = moment().tz("Europe/London").format("HH:mm:ss A 🕖");
   skiptonTimeElement.innerHTML = skiptonTime;
 
-  let tbilisiDateElement = document.querySelector("#tbilisi .date");
-  let tbilisiDate = moment().tz("Asia/Tbilisi").format("dddd, Do MMMM YYYY 📅");
-  tbilisiDateElement.innerHTML = tbilisiDate;
-
-  let tbilisiTimeElement = document.querySelector("#tbilisi .time");
-  let tbilisiTime = moment().tz("Asia/Tbilisi").format("HH:mm:ss A 🕖");
-  tbilisiTimeElement.innerHTML = tbilisiTime;
-
   let cuscoDateElement = document.querySelector("#cusco .date");
   let cuscoDate = moment().tz("America/Lima").format("dddd, Do MMMM YYYY 📅");
   cuscoDateElement.innerHTML = cuscoDate;
@@ -29,7 +21,7 @@ function displayTime() {
   let melbourneDate = moment()
     .tz("Australia/Melbourne")
     .format("dddd, Do MMMM YYYY 📅");
-  melbourneDateElement.innerHTML = cuscoDate;
+  melbourneDateElement.innerHTML = melbourneDate;
 
   let melbourneTimeElement = document.querySelector("#melbourne .time");
   let melbourneTime = moment()
@@ -37,4 +29,23 @@ function displayTime() {
     .format("HH:mm:ss A 🕖");
   melbourneTimeElement.innerHTML = melbourneTime;
 }
+
+function updateLocation(event) {
+  let locationTimeZone = event.target.value;
+  let locationName = locationTimeZone.replace("_", " ").split("/")[1];
+  let locationTime = moment().tz(locationTimeZone);
+  let interfaceElement = document.querySelector("#cities");
+  interfaceElement.innerHTML = `
+   <div class="cusco" id="cusco">
+          <h2>${locationName}</h2>
+          <div class="date">${locationTime.format("MMMM Do YYYY")}</div>
+          <div class="time">${locationTime.format(
+            "h:mm"
+          )} <small>${locationTime.format("A")}</small></div>
+        </div>
+  `;
+}
 setInterval(displayTime, 1);
+
+let locationSelectElement = document.querySelector("#city");
+locationSelectElement.addEventListener("change", updateLocation);
