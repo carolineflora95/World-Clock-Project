@@ -23,3 +23,10 @@
 .time {
   font-weight: bold;
 }
+.anchor-right {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: 0;
+  font-size: 27px;
+}
